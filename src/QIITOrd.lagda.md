@@ -10,7 +10,9 @@ order, and the termination-free recursive order-code:
 * [`QIITOrd.Properties`](QIITOrd/Properties.lagda.md) — distinguishing/inverting
   constructors, the strict order `_<_`, and limit lemmas;
 * [`QIITOrd.Order.Code`](QIITOrd/Order/Code.lagda.md) — the computing order-code
-  `_≤ᶜ_` with `≤ᶜ-refl`/`≤ᶜ-trans` and the soundness map `encode≤`.
+  `_≤ᶜ_` with `≤ᶜ-refl`/`≤ᶜ-trans` and the soundness map `encode≤`;
+* [`QIITOrd.Order.Antisymmetry`](QIITOrd/Order/Antisymmetry.lagda.md) — completeness
+  `decode≤`, the equivalence `≤ ≃ ≤ᶜ`, and **antisymmetry** of `_≤_`.
 
 The eliminator machinery (`QIITOrd.Eliminator`,
 `QIITOrd.Eliminator.NonDependent`) is universe-polymorphic and so is imported
@@ -24,4 +26,5 @@ module QIITOrd where
 open import QIITOrd.Base public
 open import QIITOrd.Properties public
 open import QIITOrd.Order.Code public
+open import QIITOrd.Order.Antisymmetry public
 ```

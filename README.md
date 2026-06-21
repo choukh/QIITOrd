@@ -2,6 +2,7 @@
 # QIITOrd
 
 [![Typecheck](https://github.com/choukh/QIITOrd/actions/workflows/typecheck.yml/badge.svg)](https://github.com/choukh/QIITOrd/actions/workflows/typecheck.yml)
+[![Docs](https://github.com/choukh/QIITOrd/actions/workflows/pages.yml/badge.svg)](https://choukh.github.io/QIITOrd/)
 [![Agda](https://img.shields.io/badge/Agda-2.8.0-blue)](https://github.com/agda/agda)
 [![cubical](https://img.shields.io/badge/cubical-0.9-blue)](https://github.com/agda/cubical)
 [![License: AGPL-3.0-only](https://img.shields.io/badge/license-AGPL--3.0--only-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.html)
@@ -12,7 +13,8 @@ Agda — with a recursive, computing order relation defined *without*
 
 The whole development is written in literate Agda (`.lagda.md`): every code block
 is explained in prose, so the source files double as a readable account of the
-construction. Start from [`src/QIITOrd.lagda.md`](src/QIITOrd.lagda.md).
+construction. Start from [`src/QIITOrd.lagda.md`](src/QIITOrd.lagda.md), or read the
+**rendered, cross-linked HTML** at **<https://choukh.github.io/QIITOrd/>**.
 
 ## Background
 
@@ -54,6 +56,7 @@ The method is documented in [`docs/termination.md`](docs/termination.md).
 | [`QIITOrd.Properties`](src/QIITOrd/Properties.lagda.md) | Distinguishing and inverting constructors (`isZero`, `isSuc`, `pred`, `suc-inj`, `s≤s-inv`, …); the strict order `_<_` and its theory; limit lemmas (`l≤l`, …). |
 | [`QIITOrd.Order.Code.Base`](src/QIITOrd/Order/Code/Base.lagda.md) | The order-code `_≤ᵖ_ : Ord → Ord → hProp`, via the external eliminator — the step that removes `{-# TERMINATING #-}`. |
 | [`QIITOrd.Order.Code`](src/QIITOrd/Order/Code.lagda.md) | `_≤ᶜ_ = typ ∘ _≤ᵖ_`; `≤ᶜ-refl` / `≤ᶜs` / `≤ᶜl`; **`≤ᶜ-trans`** (nested structural recursion); **`encode≤ : α ≤ β → α ≤ᶜ β`** (soundness). |
+| [`QIITOrd.Order.Antisymmetry`](src/QIITOrd/Order/Antisymmetry.lagda.md) | What the code is *for*: completeness `decode≤`, the characterisation `≤ ≃ ≤ᶜ`, `<`-irreflexivity, and **antisymmetry** `≤-antisym : α ≤ β → β ≤ α → α ≡ β` (unprovable by direct induction on `_≤_`). |
 | [`QIITOrd`](src/QIITOrd.lagda.md) | Umbrella re-export of the public API. |
 
 ## Dependencies
@@ -74,11 +77,12 @@ With Agda 2.8.0 and `cubical` 0.9 installed and registered in
 
 ```sh
 echo "$(pwd)/QIITOrd.agda-lib" >> ~/.agda/libraries
-agda src/Everything.lagda.md
+agda src/Everything.lagda.md      # or: make typecheck
 ```
 
-To use it from another project, add `QIITOrd` to your `.agda-lib`'s `depend`
-field and `open import QIITOrd`.
+To build the HTML documentation locally (needs `pandoc`): `make site` writes a
+browsable site to `_build/site/`. To use the library from another project, add
+`QIITOrd` to your `.agda-lib`'s `depend` field and `open import QIITOrd`.
 
 ## References
 

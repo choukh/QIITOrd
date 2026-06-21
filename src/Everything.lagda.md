@@ -15,4 +15,5 @@ open import QIITOrd
 import QIITOrd.Eliminator
 import QIITOrd.Eliminator.NonDependent
 import QIITOrd.Order.Code.Base
+import QIITOrd.Order.Antisymmetry
 ```

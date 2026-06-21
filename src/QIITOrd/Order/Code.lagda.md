@@ -22,7 +22,7 @@ See [`docs/termination.md`](../../../docs/termination.md) for the full method.
 module QIITOrd.Order.Code where
 open import QIITOrd.Base
 open import QIITOrd.Properties
-import QIITOrd.Order.Code.Base as V
+import QIITOrd.Order.Code.Base as ViaElim
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Function
@@ -51,7 +51,7 @@ invertible; pinned by hand, the occurs-check stays cheap.
 
 ## Signatures
 
-We forward-declare `_≤ᵖ_` (defined below by delegation to `V`), then `_≤ᶜ_` and
+We forward-declare `_≤ᵖ_` (defined below by delegation to `ViaElim`), then `_≤ᶜ_` and
 the cofinality preorder `_≼ᶜ_` on sequences. The `_≼ᶜ_` is spelled out directly
 (rather than via the generic `Bisimulation`) so the structural descent
 `fst f n ≤ᶜ fst g m` stays visible. We then declare the five order facts that are
@@ -114,7 +114,7 @@ hypothesis instead of `f≤ᶜl`, breaking what would otherwise be a `≤ᶜl �
 cycle.
 
 ```agda
-α ≤ᵖ β = V._≤ᵖ_ α β
+α ≤ᵖ β = ViaElim._≤ᵖ_ α β
 
 ≤ᶜ-refl {α} = elimProp {P = λ α → α ≤ᶜ α}
   (λ _ → isProp≤ᶜ) tt (λ ih → ih) (λ ih n → ∣ n , ih n ∣₁) α
