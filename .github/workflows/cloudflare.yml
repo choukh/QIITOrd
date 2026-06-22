@@ -1,14 +1,14 @@
 name: cloudflare
 
 # Build the HTML docs (Agda's native --html backend → pandoc) and deploy them to
-# Cloudflare Pages, served at bedrock.institute/sideprojects/qiitord.
+# Cloudflare Pages, served at bedrock.institute/QIITOrd.
 # The .github/workflows/pages.yml workflow keeps a GitHub Pages mirror.
 # Owner setup (once): create a Cloudflare Pages project named "qiitord", route
-# bedrock.institute/sideprojects/qiitord at it, and add the repository secrets
+# bedrock.institute/QIITOrd at it, and add the organization secrets
 # CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID.
 #
 # The generated site uses only relative links, so it is served correctly under
-# the /sideprojects/qiitord subpath without any base-URL rewriting.
+# the /QIITOrd subpath without any base-URL rewriting.
 
 on:
   push:
